@@ -11,20 +11,23 @@
 	display: flex;
 }
 .image {
-	max-width: 300px;
-	max-height: 439px;
+	min-width: 300px;
+	width: 300px;
+	height: auto; 
+	z-index: 2;
 }
 
 .image img {
-	max-width: 300px;
-	max-height: 439px;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
 }
 
 .body {
-	width: 100%;
 	padding: .3rem 1rem;
-	display: flex;
 	flex-direction: column;
+	z-index: 1;
+	width: 100%;
 }
 
 .body > div {
@@ -66,7 +69,6 @@
 	margin-right: 1rem;
 	text-align: center;
 }
-
 
 .countries {
 	display: flex;
@@ -126,14 +128,17 @@
 
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px) {
 	.image {
-		max-width: 200px;
-		max-height: 293px;
+		min-width: 200px;
+		width: 200px;
+		height: auto;
 	}
 	.image img {
-		max-width: 200px;
-		max-height: 293px;
+		display: block;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
 	}
 	.year {
 		flex-direction: column;
@@ -172,17 +177,24 @@
 	}
 }
 
-@media screen and (max-width: 414px){
+@media screen and (max-width: 520px){
 	.topDescription {
 		flex-wrap: wrap;
 		max-width: 100%;
 	}
 	.image {
-		max-width: 388.63px;
-		max-height: 615px;
+		max-width: 100%;
+		width: 100%;
+		height: auto;
+		display: flex;
 	}
 	.image img {
-		max-width: 100%;
-		max-height: 615px;
+		display: block;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		align-self: center;
+		background-size: 100% 100%;
+		background-position: center;
 	}
 }
