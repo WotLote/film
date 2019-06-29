@@ -3,10 +3,11 @@ import React , { Component } from 'react';
 import {Router, Route} from 'react-router-dom'
 import {createBrowserHistory} from 'history'
 
-import Menu from './Components/Menu'
+import Menu from './Modules/Menu'
 
 import Film from './Containers/Film'
 import Main from './Containers/Main'
+import FindDisplay from './Containers/FindDisplay'
 
 
 
@@ -21,6 +22,7 @@ class App extends Component {
 					<Route exact path="/" component={Main} />
 					<Route path="/films/:number" component={Main} />
 					<Route path="/film/:id" component={Film} />
+					<Route path='/find/:find' component={FindDisplay} />
 				</Router>
 			</div>
 		);

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import s from './Menu.module.css'
 import {Link} from 'react-router-dom'
 
+import FindInput from '../../Components/FindInput'
+
 class Menu extends Component {
 	constructor(props) {
 		super(props);
@@ -35,7 +37,7 @@ class Menu extends Component {
 	}
 
 	handleResize = () => {
-		if (window.innerWidth > 640) {
+		if (window.innerWidth > 720) {
 			this.refs.stubMenu.style.display = 'none'
 			this.refs.main.style.display = 'flex'
 		} else {
@@ -44,8 +46,8 @@ class Menu extends Component {
 		}
 	}
 	handleClickDocument = (e) => {
-		if (window.innerWidth <= 640) {
-			if (e.target.className !== s.stubButton) {
+		if (window.innerWidth <= 720) {
+			if (e.target.className !== s.stubButton && e.target.parentElement.parentElement.className !== s.findInput) {
 				let {main, stubMenu} = this.refs
 				main.style.display = 'none'
 				stubMenu.style.display = 'flex'
@@ -63,38 +65,26 @@ class Menu extends Component {
 			<div ref='TopStub' className={s.topStub}>
 				<ul className={s.disp} ref='Menu'>
 					<div ref='main' className={s.mainUl}>
-						<li>
-							<Link to='/'>
-								<div>
-									Фильмы
-								</div>
-							</Link>
-						</li>
-						<li>
-							<a><div>Справочники</div></a>
-							<ul className={s.subUl}>
-								<li><Link to='/app/tovars'><div>Товары</div></Link></li>
-								<li><Link to='/app/manufacturers'><div>Производители</div></Link></li>
-								<li><Link to='/app/type'><div>Категории</div></Link></li>
-								<li><Link to='/app/providers'><div>Поставщики</div></Link></li>
-								<li><Link to='/app/people'><div>Ответственные лица</div></Link></li>
-							</ul>
-						</li>
-						<li>
-							<Link to='/app/storage'>
-								<div>
-									Склад
-								</div>
-							</Link>
-						</li>
-						<li>
-							<a><div>Статистика</div></a>
-							<ul className={s.subUl}>
-								<li><Link to='/app/statistics/arrival'><div>Статистика прихода</div></Link></li>
-								<li><Link to='/app/statistics/real'><div>Статистика расхода</div></Link></li>
-								<li><Link to='/app/statistics'><div>Статистика за период</div></Link></li>
-							</ul>
-						</li>
+						<div>
+							<li>
+								<Link to='/'>
+									<div>
+										Фильмы
+									</div>
+								</Link>
+							</li>
+							<li>
+								<a><div>Справочники</div></a>
+								<ul className={s.subUl}>
+									<li><Link to='/app/tovars'><div>Товары</div></Link></li>
+									<li><Link to='/app/manufacturers'><div>Производители</div></Link></li>
+									<li><Link to='/app/type'><div>Категории</div></Link></li>
+									<li><Link to='/app/providers'><div>Поставщики</div></Link></li>
+									<li><Link to='/app/people'><div>Ответственные лица</div></Link></li>
+								</ul>
+							</li>
+						</div>
+						<div className={s.findInput}><FindInput /></div>
 					</div>
 					<div ref='stubMenu' className={s.stubMenu}>
 						<div className={s.stubButton} onClick={this.handleClickStubButton}></div>

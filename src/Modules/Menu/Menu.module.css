@@ -28,8 +28,15 @@
 .mainUl {
 	display: flex;
 	justify-content: space-between;
+	flex-direction: row;
+	width: 100%;
+}
+.mainUl div{
+	display: flex;
+	justify-content: space-between;
 	color: white;
 	flex-direction: row;
+
 }
 
 .mainUl li {
@@ -60,6 +67,8 @@
 	margin: .5rem 1rem;
 }
 
+
+
 .subUl{
 	position: absolute;
 	top: 100%;
@@ -72,7 +81,9 @@
 	z-index: 100;
 }
 
-
+.findInput {
+	
+}
 
 
 
@@ -86,6 +97,9 @@
 		flex-direction: column;
 		display: none;
 		width: 100%;
+	}
+	.mainUl > div:first-child {
+		flex-direction: column;
 	}
 	.mainUl li {
 		padding: .5rem 0;

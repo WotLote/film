@@ -3,11 +3,13 @@ import films from './films';
 import film from './film'
 import config from './config'
 import description from './description'
+import find from './find'
 
 
 export default combineReducers({
 	films,
 	film,
 	config,
-	description
+	description,
+	find
 })

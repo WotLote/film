@@ -1,0 +1,44 @@
+.main {
+	background: rgb(230, 230, 230);
+	margin: .3rem;
+	padding: .3rem;
+	width: calc(100% - .6rem);
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	transition: .3s; 
+}
+
+.main:hover {
+	background: orange;
+}
+
+.image {
+	min-width: 300px;
+	width: 300px;
+}
+.image img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+.description {
+	width: 100%;
+	padding-left: .3rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.title {
+	display: flex;
+	flex-direction: column;
+}
+
+.title div {
+	text-align: center;
+}
+
+.title > div:last-child {
+	font-size: 1.2rem;
+}
