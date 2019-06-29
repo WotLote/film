@@ -16,13 +16,14 @@ class DescriptionFilm extends Component {
 	}
 	render() {
 		let { flag, obj } = this.props.description;
+		let url = !obj.poster_path ? this.props.config.stub : this.props.config.url + 'w500' + obj.poster_path
 		return (
 			<div className={s.main}>
 				{flag ? 
 					<Fragment>
 						<div className={s.topDescription}>
 							<div className={s.image}>
-								<img src={`${this.props.config.url}w500${obj.poster_path}`} />
+								<img src={url} alt='hh'/>
 							</div>
 							<div className={s.body}>
 								<div className={s.title}>

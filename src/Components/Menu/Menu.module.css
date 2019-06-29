@@ -34,7 +34,6 @@
 
 .mainUl li {
 	list-style: none;
-	padding: .5rem 1rem;
 	cursor: pointer;
 	position: relative;
 }
@@ -57,6 +56,10 @@
 	text-decoration: none;
 }
 
+.mainUl li a div {
+	margin: .5rem 1rem;
+}
+
 .subUl{
 	position: absolute;
 	top: 100%;
@@ -73,7 +76,7 @@
 
 
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 720px) {
 	.topStub {
 	}
 	.disp {

@@ -9,6 +9,11 @@ class Film extends Component {
 		return (
 			<div className={s.main}>
 				<Description />
+				<div className={s.field}>
+					<div className={s.videoField}>
+
+					</div>
+				</div>
 			</div>
 		)
 	}
