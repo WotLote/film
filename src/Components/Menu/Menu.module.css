@@ -1,0 +1,125 @@
+.disp {
+	display: flex;
+	background: rgb(60, 60, 60);
+	z-index: 100;
+	transition-property: all;
+	transition: .5s;
+	position: absolute;
+	width: 100%;
+	visibility: visible;
+}
+
+.notScroll{
+	visibility: hidden;
+}
+
+.scroll{
+	visibility: visible;
+	top: 0;
+	position: fixed;
+}
+
+.topStub {
+	position: relative;
+	min-height: 59px;
+	width: 100%;
+}
+
+.mainUl {
+	display: flex;
+	justify-content: space-between;
+	color: white;
+	flex-direction: row;
+}
+
+.mainUl li {
+	list-style: none;
+	padding: .5rem 1rem;
+	cursor: pointer;
+	position: relative;
+}
+
+.mainUl li:hover {
+	background: orange;
+	transition: .37s;
+}
+.mainUl li:hover > a {
+	color: rgb(60, 60, 60);
+}
+
+.mainUl > li:hover > ul {
+	display: block;
+	transition: .37s;
+}
+
+.mainUl li a {
+	color: white;
+	text-decoration: none;
+}
+
+.subUl{
+	position: absolute;
+	top: 100%;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	padding: 0px;
+	display: none;
+	background: rgb(60, 60, 60);
+	z-index: 100;
+}
+
+
+
+
+
+@media screen and (max-width: 640px) {
+	.topStub {
+	}
+	.disp {
+		position: static;
+	}
+	.mainUl {
+		flex-direction: column;
+		display: none;
+		width: 100%;
+	}
+	.mainUl li {
+		padding: .5rem 0;
+		width: 100%;
+	}
+
+	.mainUl li div {
+		text-align: center;
+	}
+
+	.subUl {
+		width: 100%;
+	}
+	.subUl li {
+		background: rgb(80, 80, 80)
+	}
+	.subUl li:hover {
+		background: orange;
+		opacity: 0.8;
+	}
+
+	.stubMenu {
+		display: flex;
+		justify-content: flex-end;
+		background: rgb(60, 60, 60);
+		width: 100%;
+		height: 59px;
+	}
+
+	.stubButton {
+		background-image: url('/menu-button.svg');
+		background-size: 100% 100%;
+		height: 50px;
+		width: 50px;
+		align-self: center;
+		position: relative;
+		right: .3rem;
+	}
+	
+}

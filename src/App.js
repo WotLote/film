@@ -1,28 +1,26 @@
 import React , { Component } from 'react';
-import Film from './Components/Film'
 
-import {Router, Route, Link} from 'react-router-dom'
+import {Router, Route} from 'react-router-dom'
 import {createBrowserHistory} from 'history'
+
+import Menu from './Components/Menu'
+
+import Film from './Containers/Film'
+import Main from './Containers/Main'
+
+
 
 const history = createBrowserHistory();
 
 class App extends Component {
-
-	constructor(props) {
-		super(props);
-		this.state = {
-			flag: 0,
-		};
-	}
-	handleClick = () => {
-		this.setState({flag: 1})
-	}
 	render() {
 		return (
 			<div className="App">
 				<Router history={history}>
-					<Link to='/film'>kxjxk</Link>
-					<Route render={ () => <Film />} exact path='/film'/>
+					<Menu />
+					<Route exact path="/" component={Main} />
+					<Route path="/films/:number" component={Main} />
+					<Route path="/film/:id" component={Film} />
 				</Router>
 			</div>
 		);

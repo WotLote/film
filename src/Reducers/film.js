@@ -5,7 +5,7 @@ const initialState = {
 
 export default ( state = initialState, action ) => {
 	switch (action.type) {
-		case 'SET_FILMS':
+		case 'SET_FILM':
 			return {
 				...state,
 				obj: action.payload.obj,
