@@ -70,9 +70,15 @@ class Menu extends Component {
 	}
 	handleClickLink = () => {
 		this.refs.subUl.style.display = 'none'
-		setTimeout(() => {
-			this.refs.subUl.style.display = ''
-		}, 200)
+	}
+	handleMounseOver = () => {
+		this.refs.subUl.style.display = 'flex'
+		this.refs.subli.style.display = 'block'
+
+	}
+	handleMounseOut = () => {
+		this.refs.subUl.style.display = 'none'
+		this.refs.subli.style.display = 'none'
 	}
 	render() {
 		return (
@@ -88,11 +94,11 @@ class Menu extends Component {
 								</Link>
 							</li>
 							<li>
-								<a ref='subLiDiv'><div>Жанры</div></a>
+								<a ref='subLiDiv'><div onMouseOver={this.handleMounseOver} onMouseOut={this.handleMounseOut}>Жанры</div></a>
 								<ul ref='subUl' className={s.subUl}>
 									{this.state.genres ? this.state.genres.map((genres) => {
 										let url = `/genres/${genres.id}/1`
-										return (<li onClick={this.handleClickLink} key={genres.id}><Link to={url}><div>{genres.name}</div></Link></li>)
+										return (<li ref='subli' onMouseOver={this.handleMounseOver} onMouseOut={this.handleMounseOut} onClick={this.handleClickLink} key={genres.id}><Link to={url}><div>{genres.name}</div></Link></li>)
 									}) : null}
 								</ul>
 							</li>
