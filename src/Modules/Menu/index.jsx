@@ -70,6 +70,7 @@ class Menu extends Component {
 	}
 	handleClickLink = () => {
 		this.refs.subUl.style.display = 'none'
+		this.refs.main.focus()
 	}
 	handleMounseOver = () => {
 		this.refs.subUl.style.display = 'flex'
