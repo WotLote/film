@@ -159,6 +159,16 @@ class ListFilms extends Component {
 			this.refs.switch.value++
 		}
 	}
+	handleClickTwoLeft = () => {
+		if (this.refs.switch.value > 1) {
+			this.refs.switch.value = 1
+		}
+	}
+	handleClickTwoRight = () => {
+		if (this.refs.switch.value < 1000) {
+			this.refs.switch.value = 1000
+		}
+	}
 	handleClickDay = () => {
 		this.displayConstructor('day')
 		this.setState({trending: 'день'})
@@ -188,9 +198,15 @@ class ListFilms extends Component {
 							: ('...Loading')}
 						</div>
 						<div className={s.switch}>
+							<div onClick={this.handleClickTwoLeft}></div>
 							<div onClick={this.handleClickLeft}></div>
-							<div><form action="" onSubmit={this.handleSubmit.bind(this)}><input onChange={this.handleChange} ref='switch' type="number" placeholder='Переключатель'/></form></div>
+							<div>
+								<form action="" onSubmit={this.handleSubmit.bind(this)}>
+									<input onChange={this.handleChange} ref='switch' type="number" placeholder='Переключатель'/>
+								</form>
+							</div>
 							<div onClick={this.handleClickRight}></div>
+							<div onClick={this.handleClickTwoRight}></div>
 						</div>
 					</div>)
 				}

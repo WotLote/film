@@ -32,7 +32,6 @@ class ListFilmsGenres extends Component {
 				if (res.status_code === 200 || !res.status_code) {
 					let {results} = res
 					this.setState({firstResults: results, maxPage: res.total_pages > 1000 ? 1000 : res.total_pages})
-					console.log(res)
 				} else {
 					this.setState({
 						error: true,
@@ -65,7 +64,7 @@ class ListFilmsGenres extends Component {
 		let number = this.props.match.params.number ? this.props.match.params.number : 1
 
 		if (this.props.match.params.number > this.state.maxPage){
-			this.props.history.push(`/genres/${this.props.match.params.genres}`)
+			this.props.history.push(`/genres/${this.props.match.params.genres}/1`)
 			number = this.state.maxPage
 		}
 		let quantity = this.refs.ListFilmsGenres ? Math.floor(this.refs.ListFilmsGenres.offsetWidth / 312.8) : 5;
@@ -134,12 +133,10 @@ class ListFilmsGenres extends Component {
 			this.setState({switch: number})
 			this.refs.switch.value = number
 		}
-		//this.displayConstructor(nextProps)
 	}
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.history.push(`/genres/${this.props.match.params.genres}/${this.refs.switch.value}`)/*
-		this.props.location.pathname = `/genres/${this.state.genres}/${this.refs.switch.value}`*/
+		this.props.history.push(`/genres/${this.props.match.params.genres}/${this.refs.switch.value}`)
 	}
 
 	handleChange = (e) => {
@@ -159,6 +156,16 @@ class ListFilmsGenres extends Component {
 			this.refs.switch.value++
 		}
 	}
+	handleClickTwoLeft = () => {
+		if (this.refs.switch.value > 1) {
+			this.refs.switch.value = 1
+		}
+	}
+	handleClickTwoRight = () => {
+		if (this.refs.switch.value < this.state.maxPage) {
+			this.refs.switch.value = this.state.maxPage
+		}
+	}
 	handleClickDay = () => {
 		this.displayConstructor('day')
 		this.setState({trending: 'день'})
@@ -174,7 +181,7 @@ class ListFilmsGenres extends Component {
 				{this.state.error ? this.state.errorMassage :
 					(<div>
 						<div className={s.title}>
-							<div></div>
+							<div>Фильмы</div>
 						</div>
 						<div className={s.body} ref='ListFilmsGenres'>
 							{this.props.genres.flag ? 
@@ -187,9 +194,15 @@ class ListFilmsGenres extends Component {
 							: ('...Loading')}
 						</div>
 						<div className={s.switch}>
+							<div onClick={this.handleClickTwoLeft}></div>
 							<div onClick={this.handleClickLeft}></div>
-							<div><form action="" onSubmit={this.handleSubmit.bind(this)}><input onChange={this.handleChange} ref='switch' type="number" placeholder='Переключатель'/></form></div>
+							<div>
+								<form action="" onSubmit={this.handleSubmit.bind(this)}>
+									<input onChange={this.handleChange} ref='switch' type="number" placeholder='Переключатель'/>
+								</form>
+							</div>
 							<div onClick={this.handleClickRight}></div>
+							<div onClick={this.handleClickTwoRight}></div>
 						</div>
 					</div>)
 				}

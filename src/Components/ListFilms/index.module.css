@@ -53,12 +53,12 @@
 	bottom: 0;
 }
 
-.switch > div:nth-child(2) {
+.switch > div:nth-child(3) {
 	max-width: 10vw;
 	margin: 0 .4rem;
 }
 .switch > div:first-child {
-	background: url('/arrow.svg');
+	background: url('/two-arrows.svg');
 	width: 2rem;
 	height: 2.6rem;
 	background-size: 100% 100%;
@@ -67,13 +67,32 @@
 .switch > div:first-child:hover {
 	opacity: .6;
 }
-.switch > div:nth-child(3) {
+.switch > div:nth-child(2) {
+	background: url('/arrow.svg');
+	width: 2rem;
+	height: 2.6rem;
+	background-size: 100% 100%;
+	transform: scaleX(-1)
+}
+.switch > div:nth-child(2):hover {
+	opacity: .6;
+}
+.switch > div:nth-child(4) {
 	background: url('/arrow.svg');
 	width: 2rem;
 	height: 2.6rem;
 	background-size: 100% 100%;
 }
-.switch > div:nth-child(3):hover {
+.switch > div:nth-child(4):hover {
+	opacity: .6;
+}
+.switch > div:last-child {
+	background: url('/two-arrows.svg');
+	width: 2rem;
+	height: 2.6rem;
+	background-size: 100% 100%;
+}
+.switch > div:last-child:hover {
 	opacity: .6;
 }
 .switch > div {

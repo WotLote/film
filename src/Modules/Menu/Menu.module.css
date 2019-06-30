@@ -67,6 +67,18 @@
 	margin: .5rem 1rem;
 }
 
+.hoverLi {
+	display: none !important;
+}
+.hoverLi:hover {
+	display: flex !important;
+}
+
+.hoverLia:hover + .hoverLi{
+	display: flex !important;
+}
+
+
 
 
 .subUl{

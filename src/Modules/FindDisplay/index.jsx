@@ -14,7 +14,6 @@ class Find extends Component {
 			})
 			.then((res) => {
 				this.props.setFind({flag: true, obj: res})
-				console.log(res)
 			})
 	}
 	componentDidMount() {

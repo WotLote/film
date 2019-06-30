@@ -55,7 +55,7 @@ class Menu extends Component {
 	}
 	handleClickDocument = (e) => {
 		if (window.innerWidth <= 720) {
-			if (e.target.className !== s.stubButton && e.target.parentElement.parentElement.className !== s.findInput && e.target !== this.refs.subLiDiv) {
+			if (e.target.className !== s.stubButton && e.target.parentElement.parentElement.className !== s.findInput && e.target !== this.refs.subLiDiv.children[0]) {
 				let {main, stubMenu} = this.refs
 				main.style.display = 'none'
 				stubMenu.style.display = 'flex'
@@ -67,6 +67,12 @@ class Menu extends Component {
 		this.setState({stubFlag: true})
 		main.style.display = 'flex'
 		stubMenu.style.display = 'none'
+	}
+	handleClickLink = () => {
+		this.refs.subUl.style.display = 'none'
+		setTimeout(() => {
+			this.refs.subUl.style.display = ''
+		}, 200)
 	}
 	render() {
 		return (
@@ -82,11 +88,11 @@ class Menu extends Component {
 								</Link>
 							</li>
 							<li>
-								<a><div ref='subLiDiv'>Жанры</div></a>
+								<a ref='subLiDiv'><div>Жанры</div></a>
 								<ul ref='subUl' className={s.subUl}>
 									{this.state.genres ? this.state.genres.map((genres) => {
 										let url = `/genres/${genres.id}/1`
-										return (<li key={genres.id}><Link to={url}><div>{genres.name}</div></Link></li>)
+										return (<li onClick={this.handleClickLink} key={genres.id}><Link to={url}><div>{genres.name}</div></Link></li>)
 									}) : null}
 								</ul>
 							</li>
