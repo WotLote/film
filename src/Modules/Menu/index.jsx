@@ -14,6 +14,15 @@ class Menu extends Component {
 		};
 	}
 	componentDidMount() {
+		fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=7c3fb3d716ab399aabea859338e9e0e8&language=ru-RU`)
+			.then((data) => {
+				return data.json()
+			})
+			.then(({genres}) => {
+				this.setState({genres})
+				console.log(genres)
+			})
+
 		window.addEventListener('scroll', this.handleScroll)
 		window.addEventListener('resize', this.handleResize)
 		document.addEventListener('click', this.handleClickDocument)
@@ -25,7 +34,7 @@ class Menu extends Component {
 			Menu.classList.remove(s.scroll)
 			Menu.classList.remove(s.notScroll)
 		}
-		if(scrolled > Menu.offsetHeight){
+		if(scrolled > Menu.offsetHeight && !this.refs.subUl.clientHeight){
 			Menu.classList.remove(s.scroll)
 			Menu.classList.add(s.notScroll)
 		}
@@ -47,7 +56,7 @@ class Menu extends Component {
 	}
 	handleClickDocument = (e) => {
 		if (window.innerWidth <= 720) {
-			if (e.target.className !== s.stubButton && e.target.parentElement.parentElement.className !== s.findInput) {
+			if (e.target.className !== s.stubButton && e.target.parentElement.parentElement.className !== s.findInput && e.target !== this.refs.subLiDiv) {
 				let {main, stubMenu} = this.refs
 				main.style.display = 'none'
 				stubMenu.style.display = 'flex'
@@ -74,13 +83,12 @@ class Menu extends Component {
 								</Link>
 							</li>
 							<li>
-								<a><div>Справочники</div></a>
-								<ul className={s.subUl}>
-									<li><Link to='/app/tovars'><div>Товары</div></Link></li>
-									<li><Link to='/app/manufacturers'><div>Производители</div></Link></li>
-									<li><Link to='/app/type'><div>Категории</div></Link></li>
-									<li><Link to='/app/providers'><div>Поставщики</div></Link></li>
-									<li><Link to='/app/people'><div>Ответственные лица</div></Link></li>
+								<a><div ref='subLiDiv'>Жанры</div></a>
+								<ul ref='subUl' className={s.subUl}>
+									{this.state.genres ? this.state.genres.map((genres) => {
+										let url = `/genres/${genres.id}`
+										return (<li key={genres.id}><Link to={url}><div>{genres.name}</div></Link></li>)
+									}) : null}
 								</ul>
 							</li>
 						</div>

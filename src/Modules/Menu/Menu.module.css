@@ -41,8 +41,8 @@
 
 .mainUl li {
 	list-style: none;
-	cursor: pointer;
 	position: relative;
+	cursor: pointer;
 }
 
 .mainUl li:hover {
@@ -53,8 +53,8 @@
 	color: rgb(60, 60, 60);
 }
 
-.mainUl > li:hover > ul {
-	display: block;
+.mainUl > div > li:hover > ul {
+	display: flex;
 	transition: .37s;
 }
 
@@ -73,12 +73,18 @@
 	position: absolute;
 	top: 100%;
 	left: 0;
-	display: flex;
+	display: none;
 	flex-direction: column;
 	padding: 0px;
-	display: none;
-	background: rgb(60, 60, 60);
 	z-index: 100;
+	flex-wrap: wrap;
+	width: auto;
+	height: 620px;
+}
+.subUl > li {
+	display: block;
+	background: rgb(60, 60, 60);
+	width: 100%;
 }
 
 .findInput {
@@ -89,6 +95,7 @@
 
 @media screen and (max-width: 720px) {
 	.topStub {
+
 	}
 	.disp {
 		position: static;
@@ -106,19 +113,16 @@
 		width: 100%;
 	}
 
-	.mainUl li div {
-		text-align: center;
-	}
-
 	.subUl {
 		width: 100%;
+		height: auto;
 	}
 	.subUl li {
 		background: rgb(80, 80, 80)
 	}
 	.subUl li:hover {
 		background: orange;
-		opacity: 0.8;
+		opacity: 0.9;
 	}
 
 	.stubMenu {
@@ -139,4 +143,23 @@
 		right: .3rem;
 	}
 	
+}
+
+@media screen and (min-width: 721px) and (max-height: 620px) {
+	.mainUl {
+	}
+	.mainUl li {
+		position: static;
+	}
+	.subUl {
+		height: 100vh;
+		flex-wrap: nowrap;
+		width: 100%;
+		overflow-y: scroll;
+	}
+
+	.subUl li {
+		width: 100%;
+		height: auto;
+	}
 }

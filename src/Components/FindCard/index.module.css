@@ -42,3 +42,40 @@
 .title > div:last-child {
 	font-size: 1.2rem;
 }
+
+
+@media screen and (max-width: 950px) {
+	.image {
+		min-width: 200px;
+		width: 200px;
+		height: auto;
+	}
+	.image img {
+		display: block;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+}
+
+@media screen and (max-width: 520px){
+	.main {
+		flex-wrap: wrap;
+		max-width: 100%;
+	}
+	.image {
+		max-width: 100%;
+		width: 100%;
+		height: auto;
+		display: flex;
+	}
+	.image img {
+		display: block;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		align-self: center;
+		background-size: 100% 100%;
+		background-position: center;
+	}
+}
