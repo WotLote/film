@@ -1,0 +1,121 @@
+.genres {
+	display: flex;
+	flex-direction: column;
+	padding: .3rem;
+}
+
+.title {
+	display: flex;
+	justify-content: space-between;
+	padding: .3rem;
+	margin: .3rem;
+	background: rgb(230, 230, 230);
+}
+
+.title > div {
+	text-align: center;
+}
+
+.title > button {
+	background: rgb(60, 60, 60);
+	width: 20%;
+	padding: .3rem;
+	color: white;
+	border: 1px solid orange;
+	font-size: 2rem;
+	outline: none;
+}
+
+.title > button:hover {
+	background: orange;
+	color: rgb(60, 60, 60);
+}
+
+.title > button:active {
+	background: orange;
+	opacity: .6;
+}
+
+.body {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	height: 100%;
+}
+
+.switch {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	border: 1px solid green;
+	background: rgb(60, 60, 60);
+	position: relative;
+	bottom: 0;
+}
+
+.switch > div:nth-child(2) {
+	max-width: 10vw;
+	margin: 0 .4rem;
+}
+.switch > div:first-child {
+	background: url('/arrow.svg');
+	width: 2rem;
+	height: 2.6rem;
+	background-size: 100% 100%;
+	transform: scaleX(-1)
+}
+.switch > div:first-child:hover {
+	opacity: .6;
+}
+.switch > div:nth-child(3) {
+	background: url('/arrow.svg');
+	width: 2rem;
+	height: 2.6rem;
+	background-size: 100% 100%;
+}
+.switch > div:nth-child(3):hover {
+	opacity: .6;
+}
+.switch > div {
+	align-self: center;
+}
+
+.switch > div > form {
+	display: flex;
+}
+.switch > div input {
+	font-size: 2rem;
+	width: 100%;
+	text-align: center;
+	border: 0;
+	align-self: center;
+	background: rgb(230, 230, 230);
+}
+
+@media screen and (max-width: 878px) {
+	.switch > div:nth-child(2) {
+		max-width: 30vw;
+	}
+}
+
+@media screen and (max-width: 960px) {
+	.title button {
+		width: 30%;
+	}
+}
+
+@media screen and (max-width: 615px) {
+	.title button {
+		display: none;
+	}
+	.title {
+		justify-content: center;
+	}
+}
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

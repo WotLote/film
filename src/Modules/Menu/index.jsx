@@ -20,7 +20,6 @@ class Menu extends Component {
 			})
 			.then(({genres}) => {
 				this.setState({genres})
-				console.log(genres)
 			})
 
 		window.addEventListener('scroll', this.handleScroll)
@@ -86,7 +85,7 @@ class Menu extends Component {
 								<a><div ref='subLiDiv'>Жанры</div></a>
 								<ul ref='subUl' className={s.subUl}>
 									{this.state.genres ? this.state.genres.map((genres) => {
-										let url = `/genres/${genres.id}`
+										let url = `/genres/${genres.id}/1`
 										return (<li key={genres.id}><Link to={url}><div>{genres.name}</div></Link></li>)
 									}) : null}
 								</ul>

@@ -4,6 +4,7 @@ import film from './film'
 import config from './config'
 import description from './description'
 import find from './find'
+import genres from './genres'
 
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
 	film,
 	config,
 	description,
-	find
+	find,
+	genres
 })

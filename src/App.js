@@ -8,6 +8,7 @@ import Menu from './Modules/Menu'
 import Film from './Containers/Film'
 import Main from './Containers/Main'
 import FindDisplay from './Containers/FindDisplay'
+import Genres from './Containers/Genres'
 
 
 
@@ -23,6 +24,7 @@ class App extends Component {
 					<Route path="/films/:number" component={Main} />
 					<Route path="/film/:id" component={Film} />
 					<Route path='/find/:find' component={FindDisplay} />
+					<Route path='/genres/:genres/:number' component={Genres} />
 				</Router>
 			</div>
 		);

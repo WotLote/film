@@ -29,9 +29,9 @@ class Find extends Component {
 		let {results} = this.props.find.obj
 		return (
 			<div className={s.main}>
-				{results && results.length ? results.map((res, i) => {
+				{!results ? 'Loading...' : results.length ? results.map((res, i) => {
 					return (<FindCard key={i} config={this.props.config} {...res} />)
-				}) : 'gg'}
+				}) : 'not found'}
 			</div>
 		)
 	}

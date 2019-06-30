@@ -145,7 +145,7 @@
 	
 }
 
-@media screen and (min-width: 721px) and (max-height: 620px) {
+@media screen and (min-width: 721px) and (max-width: 889px) and (max-height: 620px) {
 	.mainUl {
 	}
 	.mainUl li {
@@ -160,6 +160,23 @@
 
 	.subUl li {
 		width: 100%;
+		height: auto;
+	}
+}
+
+@media screen and (min-width: 890px) and (max-height: 620px) {
+	.mainUl li {
+		position: static;
+	}
+	.subUl {
+		height: 430px;
+		flex-wrap: wrap;
+		overflow: none;
+		width: auto;
+	}
+
+	.subUl li {
+		width: auto;
 		height: auto;
 	}
 }
