@@ -18,3 +18,9 @@
 		padding: 0;
 	}
 }
+
+@media screen and (max-width: 810px) {
+	.mainForm {
+		width: 370px;
+	}
+}
