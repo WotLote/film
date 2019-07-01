@@ -17,7 +17,7 @@ const history = createBrowserHistory();
 class App extends Component {
 	render() {
 		return (
-			<div className="App">
+			<div className="app">
 				<Router history={history}>
 					<Menu />
 					<Route exact path="/" component={Main} />

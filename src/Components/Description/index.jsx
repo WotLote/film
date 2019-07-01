@@ -23,7 +23,7 @@ class DescriptionFilm extends Component {
 					<Fragment>
 						<div className={s.topDescription}>
 							<div className={s.image}>
-								<img src={url} alt='hh'/>
+								<img src={url} alt={obj.title}/>
 							</div>
 							<div className={s.body}>
 								<div className={s.title}>
